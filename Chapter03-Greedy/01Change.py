@@ -13,3 +13,4 @@ for coin in coin_types:
     n %= coin
 
 print("동전의 개수는 : ",count," 입니다.")
+
