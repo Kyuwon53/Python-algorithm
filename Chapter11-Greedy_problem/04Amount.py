@@ -10,7 +10,17 @@
 
 n = int(input())
 data = list(map(int, input().split()))
-for i in range(1000000):
+data.sort()
 
+target = 1
+# 주어진 동전들로 금액 조합
+for x in data:
+    # 만들 수 없는 금액을 찾았을 때 반복 종료
+    # 주어진 동전보다 금액이 작으면 만들 수 없는 금액이기 때문에 반복 종료
+    # 주어진 동전의 합이 다음 동전보다 클 경우 만들 수 없다.
+    # ex) 1,1,2,3,9  동전이 주어졌을 때 1+1+2+3 = 7이고 그 다음 동전의 값은 9 이기 때문에 8은 만들 수 없다.
+    if target < x:
+        break
+    target += x
 
-print(data)
+print(target)
