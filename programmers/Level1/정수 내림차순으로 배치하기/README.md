@@ -17,6 +17,6 @@ n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수�
 ### 💬 개선사항
 - `join`을 사용할 수 있다. 
 
-### 👉 문제 출처: [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+### 👉 문제 출처: [정수 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12933)
 
 

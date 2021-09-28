@@ -15,6 +15,6 @@
 ### 💬 개선사항
 - `join`을 사용할 수 있다. 
 
-### 👉 문제 출처: [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+### 👉 문제 출처: [자연수 뒤집어 배열로 만들기](https://programmers.co.kr/learn/courses/30/lessons/12932)
 
 

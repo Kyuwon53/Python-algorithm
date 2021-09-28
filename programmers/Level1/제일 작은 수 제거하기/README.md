@@ -14,6 +14,6 @@
 
 ### 💬 개선사항
 
-### 👉 문제 출처: [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
+### 👉 문제 출처: [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
 
 
