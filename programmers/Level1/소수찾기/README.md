@@ -16,7 +16,15 @@
 ### 💬 개선사항
 - 효율성과 시간복잡도 개선 
 - 에라토스테네스의 체라는 알고리즘을 활용
+```python
+def solution(n):
+    num=set(range(2,n+1))
 
+    for i in range(2,n+1):
+        if i in num:
+            num-=set(range(2*i,n+1,i))
+    return len(num)
+```
 
 ### 👉 문제 출처: [소수찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
 
