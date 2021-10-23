@@ -1,11 +1,12 @@
 def solution(nums):
-    answer = 0
+    # answer = 0
     pocket = len(set(nums))
     choose = len(nums)//2
-    if choose > pocket:
-        answer = pocket
-    else:
-        answer = choose
-    return answer
+    # if choose > pocket:
+    #     answer = pocket
+    # else:
+    #     answer = choose
+    # return answer
+    return min(pocket, choose)
 
 print(solution([3,3,3,2,2,2]))
