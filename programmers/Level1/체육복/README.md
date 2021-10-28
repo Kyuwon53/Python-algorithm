@@ -17,6 +17,10 @@
 
 ### 💬 개선사항
 - 없는 걸 찾자
+- 리팩토링 필요! 
+```python
+_reserve = [r for r in reserve if r not in lost] 
+```
 
 ### 👉 문제 출처: [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
 
