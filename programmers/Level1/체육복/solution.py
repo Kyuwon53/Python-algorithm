@@ -1,10 +1,17 @@
 def solution(n, lost, reserve):
     n -= len(lost)
+    lost.sort()
+    reserve.sort()
+
+    spare = []
+
     for i in lost:
         if i in reserve:
             reserve.pop(reserve.index(i))
-            # lost.pop(lost.index(i))
+            spare.append(i)
             n += 1
+    for i in spare:
+        lost.pop(lost.index(i))
 
     for i in lost:
         if i - 1 in reserve :
@@ -16,8 +23,8 @@ def solution(n, lost, reserve):
 
     return n
 
-n = 8
-lost = [1,2,4,6]
-reserve = [1,2,4,6]
+n = 5
+lost = [2,3,4]
+reserve = [3,4,5]
 
 print(solution(n, lost, reserve))
