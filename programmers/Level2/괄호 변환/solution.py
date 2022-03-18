@@ -1,24 +1,21 @@
 def solution(p):
     answer = ''
-    if len(p) == 0:
-        return answer
-    temp = p
-    while not is_correct(p):
-        u, v = seperator(temp)
-        if is_correct(u):
-            answer += u
-            if is_correct(v):
-                answer += v
-            else:
-                temp = v
-        else:
-            u = translate(u)
-        temp = u + v
-        if is_correct(temp):
-            p = temp
-            answer = p
-    return answer
+    if not p:
+        return ''
 
+    u, v = divide(p)
+
+    if is_correct(u):
+        return u + solution(v)
+
+    else:
+        answer += '('
+        answer += solution(v)
+        answer += ')'
+
+        answer += translate(u)
+
+    return answer
 
 def translate(words):
     if len(words) == 0:
@@ -29,56 +26,43 @@ def translate(words):
         temp = temp.replace(')', '1')
         temp = temp.replace('0', ')')
         temp = temp.replace('1', '(')
-        return '(' + temp + ')'
+        return temp
 
 
-def seperator(p):
-    for i in range(0, len(p), 2):
-        if is_correct(p[0:i]):
-            u = p[0:i]
-            v = p[i:]
-        if len(u) == 0 and is_correct(p[i:]):
-            u = p[0:i]
-            v = p[i:]
-    return u, v
-
+def divide(words):
+    for i in range(2, len(words), 2):
+        if is_balance(words[0:i]):
+            return words[0:i], words[i:]
+    return words, ''
 
 def is_correct(words):
     stack = []
     for word in words:
-        # 스택이 비어있으면 담기
-        if len(stack) == 0:
+        # 열림 괄호면 담고
+        if word == '(':
             stack.append(word)
+        # 닫힘 괄호이면
         else:
-            current = stack.pop()
-            if current == word or (current == ')' and word == '('):
-                stack.append(current)
-                stack.append(word)
-
-    if len(stack) == 0:
-        return True
-    else:
-        return False
-
+            # 스택이 비어있다면 열림괄호가 없는 상태이므로 올바른 괄호가 아님
+            if not stack:
+                return False
+            # 스택이 안비어있다면 열림 괄호 pop
+            stack.pop()
+    return True
 
 def is_balance(words):
-    right_bracket = 0
-    left_bracket = 0
-
-    if len(words) == 0:
-        return True
-
+    open_bracket = 0
+    close_bracket = 0
     for word in words:
-        if "(" == word:
-            left_bracket += 1
-        if ")" == word:
-            right_bracket += 1
-
-    if right_bracket == left_bracket:
-        return True
-    else:
-        return False
+        if word == '(':
+            open_bracket += 1
+        elif word == ')':
+            close_bracket += 1
+        if open_bracket == close_bracket:
+            return True
+    return False
 
 
-p = "(()())()"
-print(solution(p))
+words = "(()())()"
+
+print(solution(words))
