@@ -23,9 +23,8 @@ def translate(words):
     else:
         temp = words[1:-1]
         temp = temp.replace('(', '0')
-        temp = temp.replace(')', '1')
+        temp = temp.replace(')', '(')
         temp = temp.replace('0', ')')
-        temp = temp.replace('1', '(')
         return temp
 
 
