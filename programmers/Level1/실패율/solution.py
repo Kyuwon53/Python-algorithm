@@ -1,24 +1,23 @@
+import collections
+
+
 def solution(N, stages):
-    answer = []
-    clear = [0 for n in range(N+1)]
-    fail_ratio = []
-    people = len(stages)
+    # 스테이지 수 만큼  배열 생성
+    # 스테이지 배열에 담긴 수 까지 각 스테이지 카운트 업
+    fail_count = collections.Counter(stages)
+    fail_ratio = collections.defaultdict(float)
+    fail_ratio[1] = len(stages)
 
-    for stage in stages:
-        # for s in range(1,stage):
-        clear[stage-1] += 1
-    clear.pop(N)
-    for c in clear:
-        fail_ratio.append(c/people)
-        people -= c
-    while len(answer) != N :
-        for i, fail in enumerate(fail_ratio):
-            # print(max(fail_ratio))
-            if fail == max(fail_ratio):
-                answer.append(i+1)
-                fail_ratio[i] = 0
+    for i in range(1, N + 1):
+        if fail_ratio[i] != 0:
+            fail_ratio[i + 1] = fail_ratio[i] - fail_count[i]
+            fail_ratio[i] = fail_count[i] / fail_ratio[i]
 
-    return answer
+    if N + 1 in fail_ratio:
+        del fail_ratio[N + 1]
+
+    return sorted(fail_ratio, key=lambda x: -fail_ratio[x])
+
 
 N = 5
 stages = [2, 1, 2, 6, 2, 4, 3, 3]
