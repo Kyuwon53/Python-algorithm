@@ -1,13 +1,10 @@
 def solution(phone_book):
     answer = True
     phone_book.sort()
-    phone = phone_book.pop(0)
-    while phone_book:
-        i = len(phone)
-        if phone == phone_book[0][:i]:
+    for i in range(len(phone_book) - 1):
+        length = len(phone_book[i])
+        if phone_book[i] == phone_book[i + 1][:length]:
             answer = False
             break
-        phone = phone_book.pop(0)
 
     return answer
-
