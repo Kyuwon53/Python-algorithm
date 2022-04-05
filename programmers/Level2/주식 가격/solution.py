@@ -15,7 +15,3 @@ def solution(prices):
 
     return answer
 
-
-prices = [5, 8, 6, 2, 4, 1]
-print(solution(prices))
-# [3, 1, 1, 2, 1, 0]
