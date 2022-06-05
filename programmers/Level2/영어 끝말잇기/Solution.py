@@ -4,8 +4,7 @@ def solution(n, words):
     for word in words[1:]:
         if has_word(word, used_words) or not is_match_word(used_words[-1], word):
             break
-        else:
-            used_words.append(word)
+        used_words.append(word)
 
     game_round = len(used_words)
 
@@ -13,21 +12,17 @@ def solution(n, words):
     order = game_round // n + 1
 
     if game_round == len(words):
-        result = [0, 0]
-    else:
-        result = [people, order]
-    return result
+        return [0, 0]
+    return [people, order]
 
 
 def has_word(word, words):
     if word in words:
         return True
-    else:
-        return False
+    return False
 
 
 def is_match_word(target, current):
     if target[-1] == current[0]:
         return True
-    else:
-        return False
+    return False
