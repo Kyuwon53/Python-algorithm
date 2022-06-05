@@ -3,17 +3,17 @@ import Solution
 
 
 class Test(TestCase):
-    def test_solution_case1(self):
+    def test_solution_case_duplication(self):
         n = 3
         words = ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]
         self.assertEqual(Solution.solution(n, words), [3, 3])
 
-    def test_solution_case2(self):
+    def test_solution_case_no_drop(self):
         n = 5
         words = ["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"]
         self.assertEqual(Solution.solution(n, words), [0, 0])
 
-    def test_solution_case3(self):
+    def test_solution_case_not_match_word(self):
         n = 2
         words = ["hello", "one", "even", "never", "now", "world", "draw"]
         self.assertEqual(Solution.solution(n, words), [1, 3])
