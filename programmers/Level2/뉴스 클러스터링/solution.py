@@ -9,10 +9,9 @@ def solution(str1, str2):
     union_set = union(set1, set2)
 
     if len(union_set) != 0:
-        answer = int(len(intersection_set) / len(union_set) * 65536)
-    else:
-        answer = int(1 * 65536)
-    return answer
+        return int(len(intersection_set) / len(union_set) * 65536)
+    return int(1 * 65536)
+
 
 
 def multi_set(target_str):
