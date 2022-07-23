@@ -1,17 +1,15 @@
+import itertools
+from collections import Counter
+
+
 def solution(orders, course):
     answer = []
-    menu = {}
-    for ascii in range(65,91):
-        alpha = chr(ascii)
-        menu[alpha] = 0
-    for order in orders:
-        for dish in order:
-            menu[dish] += 1
-    sort_by_value = sorted(menu.items(), key=lambda x: x[1], reverse=True)
+    for c in course:
+        products = []
+        for order in orders:
+            for li in itertools.combinations(order, c):
+                products.append(''.join(sorted(li)))
+        counter = Counter(products).most_common()
 
-    return answer
-
-orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
-course = [2,3,4]
-
-print(solution(orders, course))
+        answer += [menu for menu, cnt in counter if cnt == counter[0][1] and cnt > 1]
+    return sorted(answer)
