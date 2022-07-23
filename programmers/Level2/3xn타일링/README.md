@@ -24,6 +24,6 @@
 - n 일 때의 경우의 수 => 이전 경우의 수 * 3 + 이전 경우의 수들의 특이 케이스들(각 2개) + n일 때 특이 케이스
 ### 💬 개선사항
 
-### 👉 [124 나라의 숫자](https://school.programmers.co.kr/learn/courses/30/lessons/12902)
+### 👉 [3 x n 타일링](https://school.programmers.co.kr/learn/courses/30/lessons/12902)
 
 
