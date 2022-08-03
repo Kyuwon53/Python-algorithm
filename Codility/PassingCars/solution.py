@@ -9,4 +9,6 @@ def solution(A):
             total += 1
         else:
             result += total
+    if result > 1000000000:
+        result = -1
     return result
